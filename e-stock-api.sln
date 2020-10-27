@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "e-stock-api", "e-stock-api\e-stock-api.csproj", "{6F0CBF7A-7FDD-4315-90AD-723CE48F0D59}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Easy-Navigator", "Easy-Navigator\Easy-Navigator.csproj", "{A0FDA760-0622-44F6-AF25-9A81127F5AB7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F0CBF7A-7FDD-4315-90AD-723CE48F0D59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F0CBF7A-7FDD-4315-90AD-723CE48F0D59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F0CBF7A-7FDD-4315-90AD-723CE48F0D59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F0CBF7A-7FDD-4315-90AD-723CE48F0D59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0FDA760-0622-44F6-AF25-9A81127F5AB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0FDA760-0622-44F6-AF25-9A81127F5AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0FDA760-0622-44F6-AF25-9A81127F5AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0FDA760-0622-44F6-AF25-9A81127F5AB7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BFE737CB-741A-4F82-94AC-59746D61D423}
+	EndGlobalSection
+EndGlobal
