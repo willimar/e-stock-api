@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>estock.Application</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="crud.api.core" Version="1.2.3.6" />
+    <PackageReference Include="crud.api.dto" Version="1.0.1.2" />
+    <PackageReference Include="crud.api.register" Version="1.0.1.6" />
+    <PackageReference Include="Easy-Navigator" Version="1.0.1.2" />
+    <PackageReference Include="Jwt.Simplify.Core" Version="1.0.2.3" />
+  </ItemGroup>
+
+</Project>

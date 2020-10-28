@@ -25,6 +25,11 @@ using System.Reflection;
 using data.provider.core.mongo;
 using crud.api.register.validations.register;
 using Easy.Navigator;
+using estock.Application;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace e.stock.api
 {
@@ -40,6 +45,12 @@ namespace e.stock.api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // If using Kestrel:
+            services.Configure<KestrelServerOptions>(options =>
+            {
+                options.AllowSynchronousIO = true;
+            });
+
             #region Assembly Info
             services.AddControllers();
 
@@ -94,6 +105,26 @@ namespace e.stock.api
                     });
             });
 
+            var key = Encoding.ASCII.GetBytes(Program.Secret);
+
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
             #region Dependences
 
             #region Providers
@@ -116,9 +147,9 @@ namespace e.stock.api
 
             #region Mappers
 
-            services.AddScoped<PersonModelMapper<User>>();
+            services.AddScoped<PersonModelMapper>();
 
-            services.AddTransient(sp => new MapperProfile<PersonModel, Person<User>>((PersonModelMapper<User>)sp.GetService(typeof(PersonModelMapper<User>))));
+            services.AddTransient(sp => new MapperProfile<PersonModel, Person<User>>((PersonModelMapper)sp.GetService(typeof(PersonModelMapper))));
 
             #endregion
 
@@ -130,6 +161,10 @@ namespace e.stock.api
 
             #region Validators
             services.AddScoped<PersonValidator<User>>();
+            #endregion
+
+            #region Application
+            services.AddScoped<PersonApplication>();
             #endregion
 
             #endregion
@@ -169,6 +204,7 @@ namespace e.stock.api
             });
 
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseCors(Program.AllowSpecificOrigins);
 
@@ -191,8 +227,8 @@ namespace e.stock.api
             Program.DataBaseHost = this.Configuration.ReadConfig<string>("MongoDb", "Host");
             Program.DataBaseName = this.Configuration.ReadConfig<string>("MongoDb", "DataBase");
             Program.DataBasePort = this.Configuration.ReadConfig<int>("MongoDb", "Port");
-            Program.DataBasePws = this.Configuration.ReadConfig<string>("MongoDb", "Password").ToDecrypt("fodão");
-            Program.DataBaseUser = this.Configuration.ReadConfig<string>("MongoDb", "User").ToDecrypt("fodão");
+            Program.DataBasePws = "itsgallus";
+            Program.DataBaseUser = "atlasUser";
             #endregion
         }
     }

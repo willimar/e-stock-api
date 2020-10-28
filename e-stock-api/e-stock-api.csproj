@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageProjectUrl>https://github.com/willimar/crud.api</PackageProjectUrl>
     <RepositoryUrl>https://github.com/willimar/crud.api</RepositoryUrl>
-    <Version>1.0.1.2</Version>
+    <Version>1.0.1.13</Version>
     <Copyright>© 2020 Willimar</Copyright>
     <Description>CRUD Api to interact with data</Description>
     <Product>CRUD Rest API</Product>
@@ -13,17 +13,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="crud.api.core" Version="1.2.3.6" />
-    <PackageReference Include="crud.api.dto" Version="1.0.1.2" />
-    <PackageReference Include="crud.api.register" Version="1.0.1.6" />
     <PackageReference Include="data.provider.core.mongo" Version="1.0.3.3" />
-    <PackageReference Include="EasyCrypt" Version="2.1.1.1" />
     <PackageReference Include="extension.facilities" Version="1.0.1.2" />
-    <PackageReference Include="graph.simplify.consumer" Version="1.2.1.1" />
     <PackageReference Include="jwt.consumer" Version="1.0.1.2" />
-    <PackageReference Include="Jwt.Simplify.Core" Version="1.0.2.3" />
-    <PackageReference Include="MongoDB.Driver" Version="2.11.3" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.9" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="5.6.3" />
   </ItemGroup>
@@ -33,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Easy-Navigator\Easy-Navigator.csproj" />
+    <ProjectReference Include="..\e-stock.Application\e-stock.Application.csproj" />
   </ItemGroup>
 
 
